@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbAcunmedyaAkademi1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbAcunmedyaAkademi1.dbo.TblAbout' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblAbout">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AboutTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutSubtitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="AboutBirthday" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutWebsite" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutAge" Type="tinyint" />
+          <Property Name="AboutDegree" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutFreelance" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutSubtitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutImage" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbAcunmedyaAkademi1.dbo.TblContact' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblContact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactSubtitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactAdress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbAcunmedyaAkademi1.dbo.TblContactForm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblContactForm">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactSubject" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactMessage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblEducation">
+          <Key>
+            <PropertyRef Name="EducationID" />
+          </Key>
+          <Property Name="EducationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Period" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Period" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblMessage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SenderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SenderEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="Detail" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbAcunmedyaAkademi1.dbo.TblPortfolio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TblPortfolio">
+          <Key>
+            <PropertyRef Name="PortfolioID" />
+          </Key>
+          <Property Name="PortfolioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectSubtitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectImage" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="CategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="TblResume">
+          <Key>
+            <PropertyRef Name="ResumeName" />
+          </Key>
+          <Property Name="ResumeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResumeDescription" Type="nvarchar(max)" />
+          <Property Name="ResumeAddress" Type="nvarchar(max)" />
+          <Property Name="ResumePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResumeMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResumeSubDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblService">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceTitle" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IconURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblSkill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="SkillValue" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="TblTestimonial">
+          <Key>
+            <PropertyRef Name="TestimonialID" />
+          </Key>
+          <Property Name="TestimonialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommentDetail" Type="nvarchar" MaxLength="250" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_TblProject_TblCategory">
+          <End Role="TblCategory" Type="Self.TblCategory" Multiplicity="0..1" />
+          <End Role="TblProject" Type="Self.TblProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="TblProject">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbAcunmedyaAkademi1ModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategory" EntityType="Self.TblCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblEducation" EntityType="Self.TblEducation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExperience" EntityType="Self.TblExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMessage" EntityType="Self.TblMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProject" EntityType="Self.TblProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblResume" EntityType="Self.TblResume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblService" EntityType="Self.TblService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSkill" EntityType="Self.TblSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAbout" EntityType="Self.TblAbout" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TblAbout].[AboutID] AS [AboutID], 
+    [TblAbout].[AboutTitle] AS [AboutTitle], 
+    [TblAbout].[AboutSubtitle] AS [AboutSubtitle], 
+    [TblAbout].[AboutBirthday] AS [AboutBirthday], 
+    [TblAbout].[AboutWebsite] AS [AboutWebsite], 
+    [TblAbout].[AboutPhone] AS [AboutPhone], 
+    [TblAbout].[AboutCity] AS [AboutCity], 
+    [TblAbout].[AboutAge] AS [AboutAge], 
+    [TblAbout].[AboutDegree] AS [AboutDegree], 
+    [TblAbout].[AboutEmail] AS [AboutEmail], 
+    [TblAbout].[AboutFreelance] AS [AboutFreelance], 
+    [TblAbout].[AboutSubtitle2] AS [AboutSubtitle2], 
+    [TblAbout].[AboutImage] AS [AboutImage]
+    FROM [dbo].[TblAbout] AS [TblAbout]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblContact" EntityType="Self.TblContact" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TblContact].[ContactID] AS [ContactID], 
+    [TblContact].[ContactSubtitle] AS [ContactSubtitle], 
+    [TblContact].[ContactAdress] AS [ContactAdress], 
+    [TblContact].[ContactPhone] AS [ContactPhone], 
+    [TblContact].[ContactEmail] AS [ContactEmail]
+    FROM [dbo].[TblContact] AS [TblContact]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblContactForm" EntityType="Self.TblContactForm" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TblContactForm].[ContactID] AS [ContactID], 
+    [TblContactForm].[ContactMail] AS [ContactMail], 
+    [TblContactForm].[ContactName] AS [ContactName], 
+    [TblContactForm].[ContactSubject] AS [ContactSubject], 
+    [TblContactForm].[ContactMessage] AS [ContactMessage]
+    FROM [dbo].[TblContactForm] AS [TblContactForm]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TblPortfolio" EntityType="Self.TblPortfolio" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TblPortfolio].[PortfolioID] AS [PortfolioID], 
+    [TblPortfolio].[ProjectName] AS [ProjectName], 
+    [TblPortfolio].[ProjectSubtitle] AS [ProjectSubtitle], 
+    [TblPortfolio].[ProjectCategory] AS [ProjectCategory], 
+    [TblPortfolio].[ProjectImage] AS [ProjectImage]
+    FROM [dbo].[TblPortfolio] AS [TblPortfolio]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_TblProject_TblCategory" Association="Self.FK_TblProject_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblProject" EntitySet="TblProject" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbAcunmedyaAkademi1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblProject" Relationship="Self.FK_TblProject_TblCategory" FromRole="TblCategory" ToRole="TblProject" />
+        </EntityType>
+        <EntityType Name="TblProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="TblCategory" Relationship="Self.FK_TblProject_TblCategory" FromRole="TblProject" ToRole="TblCategory" />
+        </EntityType>
+        <EntityType Name="TblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Period" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblService">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IconURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblSkill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SkillValue" Type="Byte" />
+        </EntityType>
+        <EntityType Name="TblTestimonial">
+          <Key>
+            <PropertyRef Name="TestimonialID" />
+          </Key>
+          <Property Name="TestimonialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDetail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_TblProject_TblCategory">
+          <End Role="TblCategory" Type="Self.TblCategory" Multiplicity="0..1" />
+          <End Role="TblProject" Type="Self.TblProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="TblProject">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbAcunmedyaAkademi1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TblCategory" EntityType="Self.TblCategory" />
+          <EntitySet Name="TblProject" EntityType="Self.TblProject" />
+          <EntitySet Name="TblExperience" EntityType="Self.TblExperience" />
+          <EntitySet Name="TblService" EntityType="Self.TblService" />
+          <EntitySet Name="TblSkill" EntityType="Self.TblSkill" />
+          <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" />
+          <AssociationSet Name="FK_TblProject_TblCategory" Association="Self.FK_TblProject_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblProject" EntitySet="TblProject" />
+          </AssociationSet>
+          <EntitySet Name="TblMessage" EntityType="DbAcunmedyaAkademi1Model.TblMessage" />
+          <EntitySet Name="TblEducation" EntityType="DbAcunmedyaAkademi1Model.TblEducation" />
+          <EntitySet Name="TblAbout" EntityType="DbAcunmedyaAkademi1Model.TblAbout" />
+          <EntitySet Name="TblPortfolio" EntityType="DbAcunmedyaAkademi1Model.TblPortfolio" />
+          <EntitySet Name="TblContact" EntityType="DbAcunmedyaAkademi1Model.TblContact" />
+          <EntitySet Name="TblResume" EntityType="DbAcunmedyaAkademi1Model.TblResume" />
+          <EntitySet Name="TblContactForm" EntityType="DbAcunmedyaAkademi1Model.TblContactForm" />
+        </EntityContainer>
+        <EntityType Name="TblMessage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SenderEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblEducation">
+          <Key>
+            <PropertyRef Name="EducationID" />
+          </Key>
+          <Property Name="EducationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblAbout">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AboutTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutSubtitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AboutBirthday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutWebsite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutAge" Type="Byte" />
+          <Property Name="AboutDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutFreelance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutSubtitle2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblPortfolio">
+          <Key>
+            <PropertyRef Name="PortfolioID" />
+          </Key>
+          <Property Name="PortfolioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectSubtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblContact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactSubtitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblResume">
+          <Key>
+            <PropertyRef Name="ResumeName" />
+          </Key>
+          <Property Name="ResumeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResumePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeSubDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblContactForm">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbAcunmedyaAkademi1ModelStoreContainer" CdmEntityContainer="DbAcunmedyaAkademi1Entities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCategory">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblCategory">
+              <MappingFragment StoreEntitySet="TblCategory">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProject">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblProject">
+              <MappingFragment StoreEntitySet="TblProject">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExperience">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblExperience">
+              <MappingFragment StoreEntitySet="TblExperience">
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblService">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblService">
+              <MappingFragment StoreEntitySet="TblService">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="ServiceTitle" ColumnName="ServiceTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IconURL" ColumnName="IconURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSkill">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblSkill">
+              <MappingFragment StoreEntitySet="TblSkill">
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="SkillTitle" ColumnName="SkillTitle" />
+                <ScalarProperty Name="SkillValue" ColumnName="SkillValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTestimonial">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblTestimonial">
+              <MappingFragment StoreEntitySet="TblTestimonial">
+                <ScalarProperty Name="TestimonialID" ColumnName="TestimonialID" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CommentDetail" ColumnName="CommentDetail" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMessage">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblMessage">
+              <MappingFragment StoreEntitySet="TblMessage">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SenderEmail" ColumnName="SenderEmail" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEducation">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblEducation">
+              <MappingFragment StoreEntitySet="TblEducation">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EducationID" ColumnName="EducationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAbout">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblAbout">
+              <MappingFragment StoreEntitySet="TblAbout">
+                <ScalarProperty Name="AboutImage" ColumnName="AboutImage" />
+                <ScalarProperty Name="AboutSubtitle2" ColumnName="AboutSubtitle2" />
+                <ScalarProperty Name="AboutFreelance" ColumnName="AboutFreelance" />
+                <ScalarProperty Name="AboutEmail" ColumnName="AboutEmail" />
+                <ScalarProperty Name="AboutDegree" ColumnName="AboutDegree" />
+                <ScalarProperty Name="AboutAge" ColumnName="AboutAge" />
+                <ScalarProperty Name="AboutCity" ColumnName="AboutCity" />
+                <ScalarProperty Name="AboutPhone" ColumnName="AboutPhone" />
+                <ScalarProperty Name="AboutWebsite" ColumnName="AboutWebsite" />
+                <ScalarProperty Name="AboutBirthday" ColumnName="AboutBirthday" />
+                <ScalarProperty Name="AboutSubtitle" ColumnName="AboutSubtitle" />
+                <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+                <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPortfolio">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblPortfolio">
+              <MappingFragment StoreEntitySet="TblPortfolio">
+                <ScalarProperty Name="ProjectImage" ColumnName="ProjectImage" />
+                <ScalarProperty Name="ProjectCategory" ColumnName="ProjectCategory" />
+                <ScalarProperty Name="ProjectSubtitle" ColumnName="ProjectSubtitle" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="PortfolioID" ColumnName="PortfolioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblContact">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblContact">
+              <MappingFragment StoreEntitySet="TblContact">
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactAdress" ColumnName="ContactAdress" />
+                <ScalarProperty Name="ContactSubtitle" ColumnName="ContactSubtitle" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblResume">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblResume">
+              <MappingFragment StoreEntitySet="TblResume">
+                <ScalarProperty Name="ResumeSubDescription" ColumnName="ResumeSubDescription" />
+                <ScalarProperty Name="ResumeMail" ColumnName="ResumeMail" />
+                <ScalarProperty Name="ResumePhone" ColumnName="ResumePhone" />
+                <ScalarProperty Name="ResumeAddress" ColumnName="ResumeAddress" />
+                <ScalarProperty Name="ResumeDescription" ColumnName="ResumeDescription" />
+                <ScalarProperty Name="ResumeName" ColumnName="ResumeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblContactForm">
+            <EntityTypeMapping TypeName="DbAcunmedyaAkademi1Model.TblContactForm">
+              <MappingFragment StoreEntitySet="TblContactForm">
+                <ScalarProperty Name="ContactMessage" ColumnName="ContactMessage" />
+                <ScalarProperty Name="ContactSubject" ColumnName="ContactSubject" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactMail" ColumnName="ContactMail" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

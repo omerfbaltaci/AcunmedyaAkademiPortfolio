@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AcunmedyaAkademiPortfolio.Models.TblProject>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Projelerim</h2>
+
+<p>
+    @Html.ActionLink("Yeni Proje Girişi", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblCategory.CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblCategory.CategoryName)
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.ProjectID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detaylar", "Details", new { id = item.ProjectID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.ProjectID }, new { @class = "btn btn-danger" })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

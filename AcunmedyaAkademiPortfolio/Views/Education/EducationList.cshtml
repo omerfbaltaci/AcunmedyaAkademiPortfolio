@@ -1,0 +1,51 @@
+﻿@model List<AcunmedyaAkademiPortfolio.Models.TblEducation>
+
+@{
+    ViewBag.Title = "EducationList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Eğitim Hayatım</h2>
+
+<p>
+    @Html.ActionLink("Yeni Eğitim Girişi", "CreateEducation", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Eğitim Başlığı
+        </th>
+        <th>
+            Eğitim Altbaşlığı
+        </th>
+        <th>
+            Eğitim Dönemi
+        </th>
+        <th>
+            Eğitim Açıklaması
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "UpdateEducation", new { id=item.EducationID }, new { @class = "btn btn-success"}) |
+            @Html.ActionLink("Sil", "DeleteEducation", new { id=item.EducationID }, new { @class = "btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>

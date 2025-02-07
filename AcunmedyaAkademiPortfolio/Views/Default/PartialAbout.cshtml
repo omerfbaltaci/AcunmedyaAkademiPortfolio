@@ -1,0 +1,56 @@
+﻿@model List<AcunmedyaAkademiPortfolio.Models.TblAbout>
+
+<!-- About Section -->
+
+<section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Hakkımda</h2>
+        <p>Yaratıcı bir kişiliğe sahibim ve uygulamalar için interaktif, anlaşılır ve yaratıcı arayüzler geliştirmekte hevesliyim. Ayrıca optimize ve kendi kendine gelişebilen sistemler hazırlamak, bu sistemleri sürekli olarak geliştirmek istiyorum. Aynı zamanda Makine Öğrenimi, Veri Yönetimi ve Yapay Zeka konularına ilgiliyim.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        @foreach (var item in Model)
+        {
+
+            <div class="row gy-4 justify-content-center">
+                <div class="col-lg-4">
+                    <img src="@item.AboutImage" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-8 content">
+                    <h2>@item.AboutTitle</h2>
+                    <p class="fst-italic py-3">
+                        @item.AboutSubtitle
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>@item.AboutBirthday</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>@item.AboutWebsite</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>@item.AboutPhone</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>@item.AboutCity</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>@item.AboutAge</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>@item.AboutDegree</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>@item.AboutEmail</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>@item.AboutFreelance</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="py-3">
+                        <!--About'ta resmin altındaki kısım.'-->
+                    </p>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</section>
+
+<!-- /About Section -->

@@ -1,0 +1,38 @@
+﻿@model List<AcunmedyaAkademiPortfolio.Models.TblResume>
+
+@foreach (var item in Model)
+{
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Özgeçmiş</h2>
+        <p>@item.ResumeDescription</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="resume-title">Özet</h3>
+
+                <div class="resume-item pb-0">
+                    <h4>@item.ResumeName</h4>
+                    <p><em>@item.ResumeSubDescription</em></p>
+                    <ul>
+                        <li>@item.ResumeAddress</li>
+                        <li>@item.ResumePhone</li>
+                        <li>@item.ResumeMail</li>
+                    </ul>
+                </div><!-- Edn Resume Item -->
+
+                @Html.Action("PartialEducation", "Default")
+
+            </div>
+            @Html.Action("PartialExperience", "Default")
+
+        </div>
+
+    </div>
+
+}
+

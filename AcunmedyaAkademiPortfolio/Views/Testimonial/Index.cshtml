@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AcunmedyaAkademiPortfolio.Models.TblTestimonial>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Yeni Referans Girişi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Referans Girişi", "Create", null, new { @class = "btn btn-primary" });
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentDetail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageURL)
+        </td>
+        <td>
+            <div class="btn-group" role="group">
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.TestimonialID }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Detaylar", "Details", new { id = item.TestimonialID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.TestimonialID }, new { @class = "btn btn-danger" })
+            </div>
+        </td>
+    </tr>
+}
+
+</table>

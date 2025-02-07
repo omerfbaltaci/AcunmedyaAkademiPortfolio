@@ -1,0 +1,35 @@
+﻿@model List<AcunmedyaAkademiPortfolio.Models.TblContact>
+
+@foreach (var item in Model)
+{
+
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+        <i class="bi bi-geo-alt flex-shrink-0"></i>
+        <div>
+            <h3>Adres</h3>
+            <p>@item.ContactAdress</p>
+        </div>
+    </div>
+    <!-- End Info Item -->
+
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+        <i class="bi bi-telephone flex-shrink-0"></i>
+        <div>
+            <h3>Beni Arayın</h3>
+            <p>@item.ContactPhone</p>
+        </div>
+    </div>
+    <!-- End Info Item -->
+
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+        <i class="bi bi-envelope flex-shrink-0"></i>
+        <div>
+            <h3>Bana Ulaşın</h3>
+            <p>@item.ContactEmail</p>
+        </div>
+    </div>
+    <!-- End Info Item -->
+
+
+}
+

@@ -1,0 +1,45 @@
+﻿@model List<AcunmedyaAkademiPortfolio.Models.TblProject>
+
+<section id="portfolio" class="portfolio section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolyo</h2>
+        <p>Aşağıdaki filtreleme seçeneklerini kullanarak projelerimi alanlarına göre görüntüleyebilirsiniz;</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">Bütün Projelerim</li>
+                <li data-filter=".filter-Makine-Öğrenimi-Projeleri">Makine Öğrenimi Projeleri</li>
+                <li data-filter=".filter-Nesne-Takip-ve-Denetleme-Projeleri">Nesne Takip ve Denetleme Projeleri</li>
+                <li data-filter=".filter-Otomasyon">Otomasyon Projeleri</li>
+            </ul><!-- End Portfolio Filters -->
+
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                @foreach (var item in Model)
+                {
+                    var categoryclass = item.TblCategory.CategoryName.Replace(" ", "-");
+
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@categoryclass">
+                        <img src="@item.ImageURL" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>@item.ProjectTitle</h4>
+                            <p>@item.Description</p>
+                            <a href="@item.ImageURL" title="@item.TblCategory.CategoryName" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a target=”_blank href="https://github.com/omerfbaltaci?tab=repositories" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                }
+            </div><!-- End Portfolio Container -->
+
+        </div>
+
+    </div>
+
+</section>

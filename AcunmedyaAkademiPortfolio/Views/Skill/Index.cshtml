@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AcunmedyaAkademiPortfolio.Models.TblSkill>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Yeteneklerim</h2>
+
+<p>
+    @Html.ActionLink("Yeni Yetenek Girişi", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SkillTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SkillValue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SkillTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SkillValue)
+        </td>
+        <td>
+            <div class="btn-group" role="group">
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.SkillID }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Detaylar", "Details", new { id = item.SkillID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.SkillID }, new { @class = "btn btn-danger" })
+            </div>
+        </td>
+    </tr>
+}
+
+</table>
