@@ -37,15 +37,21 @@ Bu proje, Acunmedya Akademi kapsamında geliştirilen bir **ASP.NET MVC** tabanl
 ## Kullanım
 ### Ana Sayfa
 - Kullanıcının temel bilgilerini ve projelerini sergileyen bir portföy sayfasıdır.
+- Veritabanına eklenen bilgiler dinamik olarak arayüzde güncellenir.
 
 ### Projeler Sayfası
 - Kullanıcının eklediği projeleri listeleyen ve detaylarını gösteren bir bölümdür.
+- Yine kullanıcının belirlediği kategoriler altında eklenen tüm projeler sınıflandırılabilir.
+- Kullanıcı dilerse admin paneli üzerinden proje ekleyebilmesinin yanısıra kategori de ekleyebilir, silebilir ve güncelleyebilir.
 
 ### İletişim Sayfası
 - Kullanıcıya mesaj gönderebilecek bir iletişim formu içerir.
+- Kullanıcılar tarafından iletilen mesajlar veritabanında depolanır.
+- Veritabanında depolanın mesajlar dinamik olarak admin panelinde güncellenir ve eğer istenirse görüntülenebilir.
 
 ### Yönetici Paneli
 - Kullanıcı giriş yaparak kendi portföyünü düzenleyebilir, yeni projeler ekleyebilir veya bilgilerini güncelleyebilir.
+- Proje, Kategori, Referans, İletişim bilgileri, iletilmiş olan mesajlar, Yetenekler gibi bütün bilgiler düzenlenebilir.
 
 ## Lisans
 Bu proje **Apache License 2.0** altında lisanslanmıştır. Daha fazla bilgi için `LICENSE.txt` dosyasına göz atabilirsiniz.
